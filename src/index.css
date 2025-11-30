@@ -18,6 +18,7 @@ body {
     radial-gradient(circle at 20% 80%, #d1fae5 0, transparent 30%),
     #f7f9fc;
   color: inherit;
+  overflow-x: hidden;
 }
 
 .page {
@@ -63,7 +64,7 @@ body {
 
 .card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #e2e8f0;
@@ -71,12 +72,14 @@ body {
   border-radius: 20px;
   padding: 28px;
   backdrop-filter: blur(6px);
+  width: 100%;
 }
 
 .form-panel,
 .preview {
   display: grid;
   gap: 8px;
+  width: 100%;
 }
 
 .eyebrow {
@@ -181,10 +184,12 @@ h3 {
 
 .preview {
   align-content: start;
+  justify-items: center;
 }
 
 .qr-frame {
   width: 100%;
+  max-width: 360px;
   aspect-ratio: 1 / 1;
   border-radius: 16px;
   background: radial-gradient(circle at 20% 20%, #eef2ff 0, #eef2ff 30%, transparent 60%),
@@ -193,6 +198,7 @@ h3 {
   place-items: center;
   padding: 16px;
   border: 1px solid #e2e8f0;
+  margin: 0 auto;
 }
 
 .qr-frame img {
@@ -240,6 +246,7 @@ h3 {
 
   .card {
     padding: 22px;
+    justify-items: center;
   }
 
   .qr-frame {
@@ -247,7 +254,7 @@ h3 {
   }
 
   .qr-frame canvas {
-    max-width: 260px;
+    max-width: 220px;
   }
 
   .preview .button {
