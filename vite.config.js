@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/qr-code-generator/',
+  base: '/qrcode-generator/',
+  build: {
+    outDir: 'docs',      
+  },
 })
