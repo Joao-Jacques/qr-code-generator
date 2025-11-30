@@ -34,10 +34,13 @@ Then open the app at **[http://localhost:5173](http://localhost:5173)** (default
 
 ```
 src/
-  App.jsx             # Main UI + logic
+  App.jsx             # Main wiring + state
   index.css           # Global styles
   components/
-    input.jsx         # URL input component
+    hero.jsx          # Hero/intro section
+    qrForm.jsx        # URL form + validation
+    qrPreview.jsx     # QR canvas + download
+    input.jsx         # URL input field
 public/
   qrcode-gen.png      # Favicon
 ```

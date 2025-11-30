@@ -10,7 +10,7 @@ function QrPreview({ generatedUrl, qrCanvasRef, onDownload }) {
           ref={qrCanvasRef}
           value={generatedUrl}
           size={400}  
-          includeMargin={true}
+          marginSize={4}
         />
       </div>
 
