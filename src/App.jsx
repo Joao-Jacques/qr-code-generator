@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
-import { QRCodeCanvas } from 'qrcode.react'
-import { UrlInput } from './components/input'
 import './index.css'
+import Hero from './components/hero'
+import QrForm from './components/qrForm'
+import QrPreview from './components/qrPreview'
 import Footer from './components/footer'
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
   const handleDownload = () => {
     const canvas = qrCanvasRef.current
     if (!canvas) {
-      alert('QR Code ainda não foi gerado.')
+      alert('QR Code ainda nǜo foi gerado.')
       return
     }
 
@@ -46,64 +47,21 @@ function App() {
 
   return (
     <div className="page">
-      <header className="hero">
-        <div className="hero__badge">QRCODE Generator</div>
-        <h1>Gere QRCODES de forma gratuita sem complicações</h1>
-        <h2>
-          Insira um link, clique em gerar e obtenha um QR code nítido para seu
-          site, promoção ou evento.
-        </h2>
-        <p>
-          QR Code: tecnologia que compacta informações em um padrão gráfico
-          fácil de compartilhar e que dura para sempre.
-        </p>
-      </header>
+      <Hero />
 
       <main className="card">
-        <section className="form-panel">
-          <div>
-            <p className="eyebrow">Passo 1</p>
-            <h2>Cole sua URL</h2>
-            <p className="muted">
-              Validamos e convertemos em um formato amigável para QR.
-            </p>
-          </div>
+        <QrForm
+          url={url}
+          error={error}
+          onUrlChange={(e) => setUrl(e.target.value)}
+          onGenerate={handleGenerate}
+        />
 
-          <form onSubmit={handleGenerate} className="form">
-            <UrlInput
-              label="URL de Destino"
-              value={url}
-              onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://your-link.com"
-              required
-            />
-            {error && <p className="error">{error}</p>}
-            <button type="submit" className="button primary">
-              Gerar QR Code
-            </button>
-          </form>
-        </section>
-
-        <section className="preview">
-          <p className="eyebrow">Passo 2</p>
-          <h3>Seu QR Code</h3>
-          <div className="qr-frame">
-            <QRCodeCanvas
-              ref={qrCanvasRef}
-              value={generatedUrl}
-              size={400}
-              includeMargin={true}
-            />
-          </div>
-
-          <button
-            type="button"
-            className="button ghost"
-            onClick={handleDownload}
-          >
-            Baixar PNG
-          </button>
-        </section>
+        <QrPreview
+          generatedUrl={generatedUrl}
+          qrCanvasRef={qrCanvasRef}
+          onDownload={handleDownload}
+        />
       </main>
 
       <footer className="footer">
