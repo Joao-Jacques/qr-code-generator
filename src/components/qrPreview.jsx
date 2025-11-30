@@ -9,8 +9,9 @@ function QrPreview({ generatedUrl, qrCanvasRef, onDownload }) {
         <QRCodeCanvas
           ref={qrCanvasRef}
           value={generatedUrl}
-          size={400}  
+          size={320}
           marginSize={4}
+          style={{ width: '100%', height: '100%', maxWidth: 320, maxHeight: 320 }}
         />
       </div>
 

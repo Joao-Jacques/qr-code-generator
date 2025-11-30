@@ -204,6 +204,12 @@ h3 {
   padding: 12px;
 }
 
+.qr-frame canvas {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
 .preview__url {
   display: grid;
   gap: 6px;
@@ -234,5 +240,17 @@ h3 {
 
   .card {
     padding: 22px;
+  }
+
+  .qr-frame {
+    padding: 12px;
+  }
+
+  .qr-frame canvas {
+    max-width: 260px;
+  }
+
+  .preview .button {
+    width: 100%;
   }
 }
